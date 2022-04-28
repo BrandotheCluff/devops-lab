@@ -21,9 +21,6 @@ app.get('/style', (req, res) => {
     rollbar.info('css file served')
 })
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'))
-})
 
 
 
@@ -31,4 +28,5 @@ app.get('/', (req, res) => {
 
 const port = process.env.PORT || 5000
 
+app.use(rollbar.errorHandler())
 app.listen(port, () =>  console.log(`Operating on humility ${port}`))
