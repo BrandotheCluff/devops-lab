@@ -21,9 +21,13 @@ app.get('/style', (req, res) => {
     rollbar.info('css file served')
 })
 
-
-
-
+app.get('/monkey', (req, res) => {
+    try {
+    banana();
+  } catch (error) {
+    rollbar.error(error);
+  }
+})
 
 
 const port = process.env.PORT || 5000
